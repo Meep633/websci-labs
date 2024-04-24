@@ -1,0 +1,12 @@
+.icon:hover {
+  color: gray;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a, .icon {
+  z-index: 1;
+  position: relative;
+}

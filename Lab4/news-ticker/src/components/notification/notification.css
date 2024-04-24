@@ -1,0 +1,5 @@
+#noti {
+  z-index: 3;
+  max-height: 75vh;
+  overflow-y: auto;
+}

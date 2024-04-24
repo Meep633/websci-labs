@@ -1,0 +1,18 @@
+{
+  "uuid": "75481a98-647f-4faf-8c36-8ed323fee02b",
+  "title": "Google News",
+  "description": "Comprehensive up-to-date news coverage, aggregated from sources all over the world by Google News.",
+  "keywords": "",
+  "snippet": "",
+  "url": "https://news.google.com/rss/articles/CBMiXWh0dHBzOi8vd3d3LmVzcG4uY29tL25mbC9zdG9yeS9fL2lkLzM5NzM4OTgxL2Jyb3ducy1oaXJpbmctbWlrZS12cmFiZWwtY29uc3VsdGFudC1zb3VyY2VzLXNhedIBAA?oc=5&hl=en-US&gl=US&ceid=US:en",
+  "image_url": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300-rw",
+  "language": "en",
+  "published_at": "2024-03-15T18:31:36.000000Z",
+  "source": "news.google.com",
+  "categories": [
+    "general"
+  ],
+  "relevance_score": null,
+  "locale": "us",
+  "index": 19
+}

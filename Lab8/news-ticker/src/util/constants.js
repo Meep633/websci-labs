@@ -1,0 +1,2 @@
+export const CATEGORIES = ['business', 'entertainment', 'food', 'general', 'health', 'politics', 'science', 'sports', 'tech', 'travel'];
+export const LOCALES = ['ar', 'am', 'au', 'at', 'by', 'be', 'bo', 'br', 'bg', 'ca', 'cl', 'cn', 'co', 'hr', 'cz', 'ec', 'eg', 'fr', 'de', 'gr', 'hn', 'hk', 'in', 'id', 'ir', 'ie', 'il', 'it', 'jp', 'kr', 'mx', 'nl', 'nz', 'ni', 'pk', 'pa', 'pe', 'pl', 'pt', 'qa', 'ro', 'ru', 'sa', 'za', 'es', 'ch', 'sy', 'tw', 'th', 'tr', 'ua', 'gb', 'us', 'uy', 've'];

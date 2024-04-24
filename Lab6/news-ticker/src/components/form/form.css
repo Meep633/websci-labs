@@ -1,0 +1,14 @@
+label {
+  min-width: fit-content;
+}
+
+form {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+a {
+  text-decoration: none;
+  z-index: 1;
+  position: relative;
+}

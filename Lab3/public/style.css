@@ -1,0 +1,75 @@
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  z-index: 0;
+}
+
+/* Prioritize clicking links and icons over carousel controls */
+a, .fa {
+  z-index: 1;
+  position: relative;
+}
+
+.fa:hover {
+  color: gray;
+}
+
+.fa-x:hover {
+  color: rgb(215, 40, 40);
+}
+
+.fa-plus:hover {
+  color: rgb(51, 156, 51);
+}
+
+.checked {
+  color: rgb(255, 201, 4);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* form stuff */
+.center-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.center-form {
+  max-width: 400px;
+  width: 100%;
+}
+
+label {
+  min-width: fit-content;
+}
+
+#post-form, #put-form, #del-form {
+  display: none;
+}
+
+#put-form {
+  /* display: block; */
+}
+
+#noti {
+  z-index: 3;
+}
+
+#navbar {
+  z-index: 2;
+}

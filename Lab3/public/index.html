@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>News Ticker</title>
+    <meta charset="utf-8">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Font library to get star -->
+    <link href="font-awesome/css/fontawesome.css" rel="stylesheet">
+    <link href="font-awesome/css/solid.css" rel="stylesheet">
+    <link type = "text/css" rel = "stylesheet" href = "style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="m-1" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+    <nav id="navbar" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <ul id="navbar-list" class="navbar-nav container-fluid d-flex justify-content-between">
+        <div id="nav-items" class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#bookmarks-container">Bookmarks</a>
+          </li>
+        </div>
+        <li class="nav-item">
+          <button class="btn btn-light fa fa-solid fa-plus" onclick="showForm('post-form')"></button>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="space"></div>
+    
+    <!-- form overlays for POST, PUT, DELETE -->
+
+    <div id="noti" class="toast position-fixed bottom-0 end-0">
+      <div class="toast-header d-flex justify-content-between">
+        <h5 id="noti-header"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body">
+        <pre id="noti-body"></pre>
+      </div>
+    </div>
+    
+    <div class="center-screen">
+      <div class="center-form">
+        <form id="post-form" class="text-bg-light p-3" onsubmit="return false">
+          <div class="d-flex justify-content-between mb-1">
+            <h4>Create New Article</h4>
+            <button class="fa fa-solid fa-x btn" onclick="closeForm('post-form')"></button>
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-title" class="col-form-label col-4">Title</label>
+            <input type="text" class="form-control col" id="post-title">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-desc" class="col-form-label col-4">Description</label>
+            <input type="text" class="form-control col" id="post-desc">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-keywords" class="col-form-label col-4">Keywords</label>
+            <input type="text" class="form-control col" id="post-keywords">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-snippet" class="col-form-label col-4">Snippet</label>
+            <input type="text" class="form-control col" id="post-snippet">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-url" class="col-form-label col-4">URL</label>
+            <input type="text" class="form-control col" id="post-url">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-img-url" class="col-form-label col-4">Image URL</label>
+            <input type="text" class="form-control col" id="post-img-url">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-lang" class="col-form-label col-4">Language</label>
+            <input type="text" class="form-control col" id="post-lang" value="en">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-publish" class="col-form-label col-4">Published At</label>
+            <input type="text" class="form-control col" id="post-publish">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-source" class="col-form-label col-4">Source</label>
+            <input type="text" class="form-control col" id="post-source">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post=categories" class="col-form-label col-4" required>Categories</label>
+            <input type="text" class="form-control col" id="post-categories" value="general">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="post-locale" class="col-form-label col-4">Locale</label>
+            <input type="text" class="form-control col" id="post-locale" value="us">
+          </div>
+          <button type="submit" class="btn btn-primary" onclick="postData()">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="center-screen">
+      <div class="center-form">
+        <form id="put-form" class="text-bg-light p-3" onsubmit="return false">
+          <div class="d-flex justify-content-between mb-1">
+            <h4>Update Article</h4>
+            <button class="fa fa-solid fa-x btn" onclick="closeForm('put-form')"></button>
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-uuid" class="col-form-label col-4">uuid</label>
+            <input type="text" readonly class="form-control-plaintext col" id="put-uuid">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-title" class="col-form-label col-4">Title</label>
+            <input type="text" class="form-control col" id="put-title">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-desc" class="col-form-label col-4">Description</label>
+            <input type="text" class="form-control col" id="put-desc">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-keywords" class="col-form-label col-4">Keywords</label>
+            <input type="text" class="form-control col" id="put-keywords">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-snippet" class="col-form-label col-4">Snippet</label>
+            <input type="text" class="form-control col" id="put-snippet">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-url" class="col-form-label col-4">URL</label>
+            <input type="text" class="form-control col" id="put-url">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-img-url" class="col-form-label col-4">Image URL</label>
+            <input type="text" class="form-control col" id="put-img-url">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-lang" class="col-form-label col-4">Language</label>
+            <input type="text" class="form-control col" id="put-lang">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-publish" class="col-form-label col-4">Published At</label>
+            <input type="text" class="form-control col" id="put-publish">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-source" class="col-form-label col-4">Source</label>
+            <input type="text" class="form-control col" id="put-source">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put=categories" class="col-form-label col-4" required>Categories</label>
+            <input type="text" class="form-control col" id="put-categories">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-locale" class="col-form-label col-4">Locale</label>
+            <input type="text" class="form-control col" id="put-locale">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="put-oldcat" class="col-form-label col-4">Old Categories</label>
+            <input type="text" class="form-control col" id="put-oldcat">
+          </div>
+          <button type="submit" class="btn btn-primary" onclick="changeData()">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="center-screen">
+      <div class="center-form">
+        <form id="del-form" class="text-bg-light p-3" onsubmit="return false">
+          <div class="d-flex justify-content-between mb-1">
+            <h4>Delete Article</h4>
+            <button class="fa fa-solid fa-x btn" onclick="closeForm('del-form')"></button>
+          </div>
+          <div class="form-group row mb-1">
+            <label for="del-uuid" class="col-form-label col-4">uuid</label>
+            <input type="text" readonly class="form-control-plaintext col" id="del-uuid">
+          </div>
+          <div class="form-group row mb-1">
+            <label for="del=categories" class="col-form-label col-4" required>Categories</label>
+            <input type="text" class="form-control col" id="del-categories">
+          </div>
+          <button type="submit" class="btn btn-primary" onclick="deleteData()">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- containers for news -->
+
+    <div id="bookmarks-container" class="container-fluid">
+      <h1 class="m-3">Bookmarks</h1>
+      <div id="bookmarks" class="carousel slide m-2" data-bs-ride="carousel">
+        <div id="bookmarks-carousel" class="carousel-inner"></div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#bookmarks" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#bookmarks" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
