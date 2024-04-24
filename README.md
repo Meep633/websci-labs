@@ -21,3 +21,4 @@ Make any last changes to make your project look complete.
 
 ---
 Note: For more information on these labs, please look at `assignment.pdf` in each lab folder.
+Additional Note: READMEs in each lab folder show what I thought about, what I did, and any sources I used at the time that I made the lab. These READMEs also contain a FQDN (http://zuhays.eastus.cloudapp.azure.com/), but this link no longer works.
