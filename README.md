@@ -20,4 +20,4 @@ Create 2 data visualizations using the data you collected in lab 6.
 Make any last changes to make your project look complete.
 
 ---
-For more information on these labs, please look at `assignment.pdf` in each lab folder.
+Note: For more information on these labs, please look at `assignment.pdf` in each lab folder.
